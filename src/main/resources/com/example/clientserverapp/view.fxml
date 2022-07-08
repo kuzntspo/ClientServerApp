@@ -35,5 +35,10 @@
             <Font name="Georgia Italic" size="13.0" />
          </font>
       </Button>
+      <Button fx:id="GuestButton" layoutX="506.0" layoutY="44.0" mnemonicParsing="false" prefHeight="15.0" prefWidth="180.0" style="-fx-background-color: #FAF0E6;" text="Войти как гость" textFill="#755a57">
+         <font>
+            <Font name="Georgia Italic" size="13.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

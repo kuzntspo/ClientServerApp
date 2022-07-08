@@ -21,6 +21,9 @@ public class Controller {
     private URL location;
 
     @FXML
+    private Button GuestButton;
+
+    @FXML
     private TextField LoginField;
 
     @FXML
@@ -55,6 +58,25 @@ public class Controller {
 
         SignInButton.setOnAction(actionEvent -> {
             SignInButton.getScene().getWindow().hide();
+
+            FXMLLoader loader=new FXMLLoader();
+            loader.setLocation(getClass().getResource("secondView.fxml"));
+
+            try {
+                loader.load();
+            }
+            catch (IOException e){
+                e.printStackTrace();
+            }
+
+            Parent root = loader.getRoot();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.showAndWait();
+        });
+
+        GuestButton.setOnAction(actionEvent -> {
+            GuestButton.getScene().getWindow().hide();
 
             FXMLLoader loader=new FXMLLoader();
             loader.setLocation(getClass().getResource("secondView.fxml"));
