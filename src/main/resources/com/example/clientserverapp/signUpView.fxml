@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #755a57;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.clientserverapp.SignUpController">
+    <children>
+        <AnchorPane layoutY="101.0" prefHeight="298.0" prefWidth="700.0" style="-fx-background-color: #FAEBD7;">
+            <children>
+                <TextField fx:id="SignUpSurname" layoutX="46.0" layoutY="65.0" prefHeight="27.0" prefWidth="258.0" promptText="Фамилия" style="-fx-border-color: #755a57; -fx-border-radius: 5;" />
+                <Label layoutX="264.0" layoutY="14.0" text="Регистрация" textFill="#cfc2b2">
+                    <font>
+                        <Font name="Georgia Italic" size="27.0" />
+                    </font>
+                </Label>
+                <Button fx:id="ButtonSignUp" layoutX="260.0" layoutY="196.0" mnemonicParsing="false" prefHeight="15.0" prefWidth="180.0" style="-fx-background-color: #755a57;" text="Зарегистрироваться " textFill="#cfc2b2">
+                    <font>
+                        <Font name="Georgia Italic" size="14.0" />
+                    </font>
+                </Button>
+                <PasswordField fx:id="SignUpSecondPassword" layoutX="399.0" layoutY="135.0" prefHeight="27.0" prefWidth="258.0" promptText="Повторите пароль" style="-fx-border-color: #755a57; -fx-border-radius: 5;" />
+            <TextField fx:id="SignUpName" layoutX="46.0" layoutY="101.0" prefHeight="27.0" prefWidth="258.0" promptText="Имя" style="-fx-border-color: #755a57; -fx-border-radius: 5;" />
+            <TextField fx:id="SignUpLogin" layoutX="399.0" layoutY="65.0" prefHeight="27.0" prefWidth="258.0" promptText="Логин" style="-fx-border-color: #755a57; -fx-border-radius: 5;" />
+            <TextField fx:id="SignUpMiddleName" layoutX="46.0" layoutY="135.0" prefHeight="27.0" prefWidth="258.0" promptText="Отчество" style="-fx-border-color: #755a57; -fx-border-radius: 5;" />
+            <PasswordField fx:id="SignUpPassword" layoutX="399.0" layoutY="101.0" prefHeight="27.0" prefWidth="258.0" promptText="Пароль" style="-fx-border-color: #755a57; -fx-border-radius: 5;" />
+            </children>
+        </AnchorPane>
+        <Label layoutX="251.0" layoutY="40.0" text="Database access" textFill="ANTIQUEWHITE">
+            <font>
+                <Font name="Georgia Italic" size="27.0" />
+            </font>
+        </Label>
+    </children>
+</AnchorPane>
