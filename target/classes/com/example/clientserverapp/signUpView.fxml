@@ -22,8 +22,7 @@
                     </font>
                 </Button>
             <TextField fx:id="SignUpLogin" layoutX="235.0" layoutY="64.0" prefHeight="27.0" prefWidth="258.0" promptText="Логин" style="-fx-border-color: #755a57; -fx-border-radius: 5;" />
-            <PasswordField fx:id="SignUpPassword" layoutX="235.0" layoutY="98.0" prefHeight="27.0" prefWidth="258.0" promptText="Пароль" style="-fx-border-color: #755a57; -fx-border-radius: 5;" />
-            <TextField fx:id="SignUpRights" layoutX="235.0" layoutY="135.0" prefHeight="27.0" prefWidth="258.0" promptText="Права доступа" style="-fx-border-color: #755a57; -fx-border-radius: 5;" />
+            <PasswordField fx:id="SignUpPassword" layoutX="235.0" layoutY="121.0" prefHeight="27.0" prefWidth="258.0" promptText="Пароль" style="-fx-border-color: #755a57; -fx-border-radius: 5;" />
             </children>
         </AnchorPane>
         <Label layoutX="251.0" layoutY="40.0" text="Database access" textFill="ANTIQUEWHITE">

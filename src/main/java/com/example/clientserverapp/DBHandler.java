@@ -13,15 +13,14 @@ public class DBHandler extends Configs{
         return connection;
     }
 
-    public void signUpUser(String login, String password, String access_rights){
-        String insert = "INSERT INTO " + Const.USER_TABLE + "(" +  Const.USERS_LOGIN + ","
-                + Const.USERS_PASSWORD + "," + Const.USERS_ACCESS_RIGHTS + ")" + "VALUES(?, ?, ?)";
+    public void signUpUser(String login, String password){
+        String insert = "INSERT INTO " + Const.USER_TABLE + "(" +  Const.USERS_LOGIN + "," + Const.USERS_PASSWORD + ")" + "VALUES(?, ?)";
 
         try {
             PreparedStatement ps = getConnection().prepareStatement(insert);
             ps.setString(1, login);
             ps.setString(2, password);
-            ps.setString(3, access_rights);
+            //ps.setString(3, access_rights);
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

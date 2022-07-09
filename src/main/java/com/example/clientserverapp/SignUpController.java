@@ -24,14 +24,14 @@ public class SignUpController {
     @FXML
     private PasswordField SignUpPassword;
 
-    @FXML
-    private TextField SignUpRights;
+    //@FXML
+    //private TextField SignUpRights;
 
     @FXML
     void initialize() {
         DBHandler handler = new DBHandler();
         ButtonSignUp.setOnAction(actionEvent -> {
-            handler.signUpUser(SignUpLogin.getText(), SignUpPassword.getText(), SignUpRights.getText());
+            handler.signUpUser(SignUpLogin.getText(), SignUpPassword.getText());
         });
 
     }
