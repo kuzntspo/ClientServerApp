@@ -1,16 +1,11 @@
 package com.example.clientserverapp;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
 public class SignUpController {
 
@@ -27,39 +22,16 @@ public class SignUpController {
     private TextField SignUpLogin;
 
     @FXML
-    private TextField SignUpMiddleName;
-
-    @FXML
-    private TextField SignUpName;
-
-    @FXML
     private PasswordField SignUpPassword;
 
     @FXML
-    private PasswordField SignUpSecondPassword;
-
-    @FXML
-    private TextField SignUpSurname;
+    private TextField SignUpRights;
 
     @FXML
     void initialize() {
+        DBHandler handler = new DBHandler();
         ButtonSignUp.setOnAction(actionEvent -> {
-            ButtonSignUp.getScene().getWindow().hide();
-
-            FXMLLoader loader=new FXMLLoader();
-            loader.setLocation(getClass().getResource("view.fxml"));
-
-            try {
-                loader.load();
-            }
-            catch (IOException e){
-                e.printStackTrace();
-            }
-
-            Parent root = loader.getRoot();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.showAndWait();
+            handler.signUpUser(SignUpLogin.getText(), SignUpPassword.getText(), SignUpRights.getText());
         });
 
     }

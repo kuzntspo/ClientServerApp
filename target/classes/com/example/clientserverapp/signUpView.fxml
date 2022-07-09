@@ -11,7 +11,6 @@
     <children>
         <AnchorPane layoutY="101.0" prefHeight="298.0" prefWidth="700.0" style="-fx-background-color: #FAEBD7;">
             <children>
-                <TextField fx:id="SignUpSurname" layoutX="46.0" layoutY="65.0" prefHeight="27.0" prefWidth="258.0" promptText="Фамилия" style="-fx-border-color: #755a57; -fx-border-radius: 5;" />
                 <Label layoutX="264.0" layoutY="14.0" text="Регистрация" textFill="#cfc2b2">
                     <font>
                         <Font name="Georgia Italic" size="27.0" />
@@ -22,11 +21,9 @@
                         <Font name="Georgia Italic" size="14.0" />
                     </font>
                 </Button>
-                <PasswordField fx:id="SignUpSecondPassword" layoutX="399.0" layoutY="135.0" prefHeight="27.0" prefWidth="258.0" promptText="Повторите пароль" style="-fx-border-color: #755a57; -fx-border-radius: 5;" />
-            <TextField fx:id="SignUpName" layoutX="46.0" layoutY="101.0" prefHeight="27.0" prefWidth="258.0" promptText="Имя" style="-fx-border-color: #755a57; -fx-border-radius: 5;" />
-            <TextField fx:id="SignUpLogin" layoutX="399.0" layoutY="65.0" prefHeight="27.0" prefWidth="258.0" promptText="Логин" style="-fx-border-color: #755a57; -fx-border-radius: 5;" />
-            <TextField fx:id="SignUpMiddleName" layoutX="46.0" layoutY="135.0" prefHeight="27.0" prefWidth="258.0" promptText="Отчество" style="-fx-border-color: #755a57; -fx-border-radius: 5;" />
-            <PasswordField fx:id="SignUpPassword" layoutX="399.0" layoutY="101.0" prefHeight="27.0" prefWidth="258.0" promptText="Пароль" style="-fx-border-color: #755a57; -fx-border-radius: 5;" />
+            <TextField fx:id="SignUpLogin" layoutX="235.0" layoutY="64.0" prefHeight="27.0" prefWidth="258.0" promptText="Логин" style="-fx-border-color: #755a57; -fx-border-radius: 5;" />
+            <PasswordField fx:id="SignUpPassword" layoutX="235.0" layoutY="98.0" prefHeight="27.0" prefWidth="258.0" promptText="Пароль" style="-fx-border-color: #755a57; -fx-border-radius: 5;" />
+            <TextField fx:id="SignUpRights" layoutX="235.0" layoutY="135.0" prefHeight="27.0" prefWidth="258.0" promptText="Права доступа" style="-fx-border-color: #755a57; -fx-border-radius: 5;" />
             </children>
         </AnchorPane>
         <Label layoutX="251.0" layoutY="40.0" text="Database access" textFill="ANTIQUEWHITE">

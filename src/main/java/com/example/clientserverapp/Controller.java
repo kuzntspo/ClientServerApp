@@ -55,7 +55,7 @@ public class Controller {
             stage.setScene(new Scene(root));
             stage.showAndWait();
         });
-
+/*
         SignInButton.setOnAction(actionEvent -> {
             SignInButton.getScene().getWindow().hide();
 
@@ -93,5 +93,7 @@ public class Controller {
             stage.setScene(new Scene(root));
             stage.showAndWait();
         });
+
+ */
     }
 }
