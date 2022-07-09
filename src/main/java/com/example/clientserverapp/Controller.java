@@ -2,6 +2,8 @@ package com.example.clientserverapp;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -55,45 +57,37 @@ public class Controller {
             stage.setScene(new Scene(root));
             stage.showAndWait();
         });
-/*
+
         SignInButton.setOnAction(actionEvent -> {
-            SignInButton.getScene().getWindow().hide();
-
-            FXMLLoader loader=new FXMLLoader();
-            loader.setLocation(getClass().getResource("secondView.fxml"));
+            String login=LoginField.getText();
+            String password=PasswordField.getText();
 
             try {
-                loader.load();
-            }
-            catch (IOException e){
+                loginUser(login, password);
+            } catch (SQLException e) {
                 e.printStackTrace();
             }
-
-            Parent root = loader.getRoot();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.showAndWait();
         });
 
-        GuestButton.setOnAction(actionEvent -> {
-            GuestButton.getScene().getWindow().hide();
-
-            FXMLLoader loader=new FXMLLoader();
-            loader.setLocation(getClass().getResource("secondView.fxml"));
-
-            try {
-                loader.load();
-            }
-            catch (IOException e){
-                e.printStackTrace();
-            }
-
-            Parent root = loader.getRoot();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.showAndWait();
-        });
-
- */
     }
+
+    private void loginUser(String login, String password) throws SQLException {
+        DBHandler handler = new DBHandler();
+        User user=new User();
+        user.setLogin(login);
+        user.setPassword(password);
+
+        ResultSet result = handler.getUser(user);
+
+        int count=0;
+
+        while (result.next()){
+            count++;
+        }
+
+        if (count>=1){
+            System.out.println("Пользователь найден");
+        }
+    }
+
 }
