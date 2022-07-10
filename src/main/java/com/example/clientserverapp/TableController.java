@@ -1,5 +1,6 @@
 package com.example.clientserverapp;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,13 +12,18 @@ import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
-public class SecondController {
+public class TableController {
 
     @FXML
     private Button AddButton;
@@ -62,8 +68,13 @@ public class SecondController {
     private TableColumn<Quote, String> user_idColumn;
 
     @FXML
-    void getAddView(MouseEvent event) {
-
+    void getAddView(MouseEvent event) throws IOException {
+        Parent p = FXMLLoader.load(getClass().getResource("AddQuote.fxml"));
+        Scene scene = new Scene(p);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.initStyle(StageStyle.UTILITY);
+        stage.show();
     }
 
     @FXML

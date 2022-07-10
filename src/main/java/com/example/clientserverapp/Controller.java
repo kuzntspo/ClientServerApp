@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -93,7 +94,7 @@ public class Controller {
                 SignInButton.getScene().getWindow().hide();
 
                 FXMLLoader loader=new FXMLLoader();
-                loader.setLocation(getClass().getResource("secondView.fxml"));
+                loader.setLocation(getClass().getResource("tableView.fxml"));
 
                 try {
                     loader.load();
@@ -109,7 +110,10 @@ public class Controller {
             });
         }
         else {
-            System.out.println("Пользователь не найден");
+            Alert alert =new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("Логин или пароль введены неверно. Возможно, вы не зарегистрированы.");
+            alert.showAndWait();
         }
     }
 }

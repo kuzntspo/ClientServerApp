@@ -14,7 +14,7 @@ public class DBHandler extends Configs{
     }
 
     public void signUpUser(User user){
-        String insert = "INSERT INTO " + Const.USER_TABLE + "(" +  Const.USERS_LOGIN + "," + Const.USERS_PASSWORD + ")" + "VALUES(?, ?)";
+        String insert = "INSERT INTO `users`(`login`, `password`) VALUES(?, ?)";
 
         try {
             PreparedStatement ps = getConnection().prepareStatement(insert);
@@ -32,7 +32,7 @@ public class DBHandler extends Configs{
     public ResultSet getUser(User user){
         ResultSet rs=null;
 
-        String select= "SELECT * FROM " + Const.USER_TABLE + " WHERE " + Const.USERS_LOGIN + "=? AND " + Const.USERS_PASSWORD + "=?";
+        String select= "SELECT * FROM `users` WHERE `login` =? AND `password` =?";
 
         try {
             PreparedStatement ps = getConnection().prepareStatement(select);
