@@ -9,36 +9,33 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #755a57;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.clientserverapp.Controller">
    <children>
-      <AnchorPane layoutY="101.0" prefHeight="298.0" prefWidth="700.0" style="-fx-background-color: #FAEBD7;">
-         <children>
-            <TextField fx:id="LoginField" layoutX="241.0" layoutY="86.0" prefHeight="27.0" prefWidth="217.0" promptText="Логин" style="-fx-border-color: #755a57; -fx-border-radius: 5;" />
-            <Label layoutX="261.0" layoutY="28.0" text="Авторизация" textFill="#cfc2b2">
-               <font>
-                  <Font name="Georgia Italic" size="27.0" />
-               </font>
-            </Label>
-            <Button fx:id="SignInButton" layoutX="259.0" layoutY="197.0" mnemonicParsing="false" prefHeight="15.0" prefWidth="180.0" style="-fx-background-color: #755a57;" text="Войти" textFill="#cfc2b2">
-               <font>
-                  <Font name="Georgia Italic" size="14.0" />
-               </font>
-            </Button>
-            <PasswordField fx:id="PasswordField" layoutX="241.0" layoutY="136.0" prefHeight="26.0" prefWidth="218.0" promptText="Пароль" style="-fx-border-color: #755a57; -fx-border-radius: 5;" />
-         </children>
-      </AnchorPane>
+      <AnchorPane layoutY="79.0" prefHeight="8.0" prefWidth="700.0" style="-fx-background-color: #FAEBD7;" />
       <Label layoutX="251.0" layoutY="40.0" text="Database access" textFill="ANTIQUEWHITE">
          <font>
             <Font name="Georgia Italic" size="27.0" />
          </font>
       </Label>
-      <Button fx:id="SignUpButton" layoutX="506.0" layoutY="14.0" mnemonicParsing="false" prefHeight="15.0" prefWidth="180.0" style="-fx-background-color: #FAF0E6;" text="Регистрация" textFill="#755a57">
+      <Button fx:id="SignUpButton" layoutX="496.0" layoutY="14.0" mnemonicParsing="false" prefHeight="15.0" prefWidth="180.0" style="-fx-background-color: #FAEBD7;" text="Регистрация" textFill="#755a57">
          <font>
             <Font name="Georgia Italic" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="GuestButton" layoutX="506.0" layoutY="44.0" mnemonicParsing="false" prefHeight="15.0" prefWidth="180.0" style="-fx-background-color: #FAF0E6;" text="Войти как гость" textFill="#755a57">
+      <Button fx:id="GuestButton" layoutX="496.0" layoutY="44.0" mnemonicParsing="false" prefHeight="15.0" prefWidth="180.0" style="-fx-background-color: #FAEBD7;" text="Войти как гость" textFill="#755a57">
          <font>
             <Font name="Georgia Italic" size="13.0" />
          </font>
       </Button>
+      <TextField fx:id="LoginField" layoutX="241.0" layoutY="172.0" prefHeight="27.0" prefWidth="217.0" promptText="Логин" style="-fx-border-color: #755a57; -fx-border-radius: 5;" />
+      <PasswordField fx:id="PasswordField" layoutX="241.0" layoutY="229.0" prefHeight="26.0" prefWidth="218.0" promptText="Пароль" style="-fx-border-color: #755a57; -fx-border-radius: 5;" />
+      <Button fx:id="SignInButton" layoutX="271.0" layoutY="304.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="152.0" style="-fx-background-color: #FAEBD7;" text="Войти" textFill="#755a57">
+         <font>
+            <Font name="Georgia Italic" size="14.0" />
+         </font>
+      </Button>
+      <Label layoutX="259.0" layoutY="104.0" text="Авторизация" textFill="#cfc2b2">
+         <font>
+            <Font name="Georgia Italic" size="27.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

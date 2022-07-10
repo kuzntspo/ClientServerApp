@@ -39,6 +39,7 @@ public class Controller {
 
     @FXML
     void initialize() {
+        //Переход на окно регистрации при нажатии на кнопку "регистрация"
         SignUpButton.setOnAction(actionEvent -> {
             SignUpButton.getScene().getWindow().hide();
 
@@ -58,6 +59,7 @@ public class Controller {
             stage.showAndWait();
         });
 
+        //Авторизация пользователя
         SignInButton.setOnAction(actionEvent -> {
             String login=LoginField.getText();
             String password=PasswordField.getText();
@@ -86,8 +88,28 @@ public class Controller {
         }
 
         if (count>=1){
-            System.out.println("Пользователь найден");
+            //Если пользователь найден, то переходим на новое окно, нажав на кнопку "войти"
+            SignInButton.setOnAction(actionEvent -> {
+                SignInButton.getScene().getWindow().hide();
+
+                FXMLLoader loader=new FXMLLoader();
+                loader.setLocation(getClass().getResource("secondView.fxml"));
+
+                try {
+                    loader.load();
+                }
+                catch (IOException e){
+                    e.printStackTrace();
+                }
+
+                Parent root = loader.getRoot();
+                Stage stage = new Stage();
+                stage.setScene(new Scene(root));
+                stage.showAndWait();
+            });
+        }
+        else {
+            System.out.println("Пользователь не найден");
         }
     }
-
 }

@@ -32,7 +32,6 @@ public class SignUpController {
         ButtonSignUp.setOnAction(actionEvent -> {
             SignUpUser();
         });
-
     }
 
     private void SignUpUser() {

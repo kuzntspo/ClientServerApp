@@ -7,28 +7,26 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #755a57;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.clientserverapp.SignUpController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="629.0" style="-fx-background-color: #FAEBD7;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.clientserverapp.SignUpController">
     <children>
-        <AnchorPane layoutY="101.0" prefHeight="298.0" prefWidth="700.0" style="-fx-background-color: #FAEBD7;">
-            <children>
-                <Label layoutX="264.0" layoutY="14.0" text="Регистрация" textFill="#cfc2b2">
-                    <font>
-                        <Font name="Georgia Italic" size="27.0" />
-                    </font>
-                </Label>
-                <Button fx:id="ButtonSignUp" layoutX="260.0" layoutY="196.0" mnemonicParsing="false" prefHeight="15.0" prefWidth="180.0" style="-fx-background-color: #755a57;" text="Зарегистрироваться " textFill="#cfc2b2">
-                    <font>
-                        <Font name="Georgia Italic" size="14.0" />
-                    </font>
-                </Button>
-            <TextField fx:id="SignUpLogin" layoutX="235.0" layoutY="64.0" prefHeight="27.0" prefWidth="258.0" promptText="Логин" style="-fx-border-color: #755a57; -fx-border-radius: 5;" />
-            <PasswordField fx:id="SignUpPassword" layoutX="235.0" layoutY="121.0" prefHeight="27.0" prefWidth="258.0" promptText="Пароль" style="-fx-border-color: #755a57; -fx-border-radius: 5;" />
-            </children>
-        </AnchorPane>
+        <AnchorPane layoutX="-1.0" layoutY="71.0" prefHeight="8.0" prefWidth="630.0" style="-fx-background-color: #755a57;" />
         <Label layoutX="251.0" layoutY="40.0" text="Database access" textFill="ANTIQUEWHITE">
             <font>
                 <Font name="Georgia Italic" size="27.0" />
             </font>
         </Label>
+          <Button fx:id="ButtonSignUp" layoutX="224.0" layoutY="241.0" mnemonicParsing="false" prefHeight="15.0" prefWidth="180.0" style="-fx-background-color: #755a57;" text="Зарегистрироваться " textFill="#cfc2b2">
+              <font>
+                  <Font name="Georgia Italic" size="14.0" />
+              </font>
+          </Button>
+      <PasswordField fx:id="SignUpPassword" layoutX="185.0" layoutY="151.0" prefHeight="27.0" prefWidth="258.0" promptText="Придумайте пароль" style="-fx-border-color: #755a57; -fx-border-radius: 5;" />
+      <TextField fx:id="SignUpLogin" layoutX="185.0" layoutY="113.0" prefHeight="27.0" prefWidth="258.0" promptText="Придумайте логин" style="-fx-border-color: #755a57; -fx-border-radius: 5;" />
+          <Label layoutX="229.0" layoutY="24.0" text="Регистрация" textFill="#755a57">
+              <font>
+                  <Font name="Georgia Italic" size="27.0" />
+              </font>
+          </Label>
+      <PasswordField fx:id="SignUpPassword1" layoutX="185.0" layoutY="186.0" prefHeight="27.0" prefWidth="258.0" promptText="Повторите пароль" style="-fx-border-color: #755a57; -fx-border-radius: 5;" />
     </children>
 </AnchorPane>

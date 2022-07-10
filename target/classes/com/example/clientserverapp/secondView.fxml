@@ -1,24 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #755a57;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.clientserverapp.SecondController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="742.0" style="-fx-background-color: #755a57;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.clientserverapp.SecondController">
     <children>
-        <AnchorPane layoutY="101.0" prefHeight="298.0" prefWidth="700.0" style="-fx-background-color: #FAEBD7;">
-            <children>
-                <Label layoutX="237.0" layoutY="92.0" text="Hello World!" textFill="#cfc2b2">
-                    <font>
-                        <Font name="Georgia Italic" size="39.0" />
-                    </font>
-                </Label>
-            </children>
-        </AnchorPane>
-        <Label layoutX="251.0" layoutY="40.0" text="Database access" textFill="ANTIQUEWHITE">
-            <font>
-                <Font name="Georgia Italic" size="27.0" />
-            </font>
-        </Label>
+      <TableView fx:id="quoteTable" layoutY="117.0" prefHeight="282.0" prefWidth="742.0">
+        <columns>
+          <TableColumn fx:id="idColumn" prefWidth="38.40002250671387" text="id" />
+          <TableColumn fx:id="user_idColumn" prefWidth="47.200042724609375" text="user_id" />
+            <TableColumn fx:id="quoteColumn" prefWidth="166.39997100830078" text="quote" />
+            <TableColumn fx:id="surnameColumn" minWidth="0.0" prefWidth="74.4000244140625" text="surname" />
+            <TableColumn fx:id="nameColumn" minWidth="0.0" text="name" />
+            <TableColumn fx:id="middle_nameColumn" prefWidth="87.19992065429688" text="middle_name" />
+            <TableColumn fx:id="subjectColumn" prefWidth="99.99993896484375" text="subject" />
+            <TableColumn fx:id="dateColumn" prefWidth="77.60009765625" text="date" />
+            <TableColumn fx:id="editColumn" prefWidth="72.7999267578125" text="date" />
+        </columns>
+      </TableView>
+      <Pane layoutY="46.0" prefHeight="6.0" prefWidth="742.0" style="-fx-background-color: #FAEBD7;" />
+      <Text fill="ANTIQUEWHITE" layoutX="204.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Цитаты преподавателей">
+         <font>
+            <Font name="Georgia Italic" size="23.0" />
+         </font>
+      </Text>
+      <HBox layoutY="52.0" prefHeight="66.0" prefWidth="232.0">
+         <children>
+            <Button fx:id="AddButton" mnemonicParsing="false" onMouseClicked="#getAddView" style="-fx-background-color: #FAEBD7;" text="Добавить цитату" textFill="#755a57" />
+            <Button fx:id="refreshButton" mnemonicParsing="false" onMouseClicked="#refreshTable" style="-fx-background-color: #FAEBD7;" text="Обновить" textFill="#755a57" />
+            <HBox alignment="TOP_CENTER" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="261.0" layoutY="72.0" />
     </children>
 </AnchorPane>

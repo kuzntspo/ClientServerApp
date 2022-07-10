@@ -3,9 +3,9 @@ package com.example.clientserverapp;
 import java.sql.*;
 
 public class DBHandler extends Configs{
-    Connection connection;
+        private static Connection connection;
 
-    public Connection getConnection() throws ClassNotFoundException, SQLException{
+    public static Connection getConnection() throws ClassNotFoundException, SQLException{
         String connectionString = "jdbc:mysql://" + dbHost + ":" + dbPort + "/" +dbName;
 
         Class.forName("com.mysql.cj.jdbc.Driver");
