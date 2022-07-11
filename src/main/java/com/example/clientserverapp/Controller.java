@@ -42,6 +42,7 @@ public class Controller {
 
     @FXML
     void initialize() {
+
         //Переход на окно регистрации при нажатии на кнопку "регистрация".
         SignUpButton.setOnAction(actionEvent -> {
             SignUpButton.getScene().getWindow().hide();
@@ -114,7 +115,7 @@ public class Controller {
 
             count++;
         }
-        if ((count>=1)&&((user.getAccess_rights().equals("user"))||(user.getAccess_rights().equals("superuser"))||(user.getAccess_rights().equals("headmen")))){
+        if ((count>=1)&&((user.getAccess_rights().equals("user"))||(user.getAccess_rights().equals("superuser"))||(user.getAccess_rights().equals("verifier")))){
             //Если пользователь найден, то переходим на новое окно.
             SignInButton.setOnAction(actionEvent -> {
                 SignInButton.getScene().getWindow().hide();

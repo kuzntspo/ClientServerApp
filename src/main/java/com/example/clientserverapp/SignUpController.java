@@ -34,9 +34,6 @@ public class SignUpController {
     private PasswordField SignUpPassword;
 
 
-    //@FXML
-    //private TextField SignUpRights;
-
     @FXML
     void initialize() {
         //Нажатие на кнопку "Зарегистрироваться".

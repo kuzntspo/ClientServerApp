@@ -16,6 +16,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -84,12 +85,40 @@ public class TableController {
 
     @FXML
     private TableColumn<Quote, String> user_idColumn;
-
-    @FXML
-    void delete(MouseEvent event){}
-
     @FXML
     private Button exitButton;
+
+    public static int currentId;
+    public static int currentUser_Id;
+
+    @FXML
+    //Удаление выделенной записи.
+    void delete(MouseEvent event) throws SQLException, ClassNotFoundException {
+        connection = handler.getConnection();
+        int id=quoteTable.getSelectionModel().getSelectedItem().id;
+        query = "DELETE FROM `teacher_quotes` WHERE teacher_quotes.id = " + id;
+        ps=connection.prepareStatement(query);
+        ps.execute();
+        Alert alert =new Alert(Alert.AlertType.INFORMATION);
+        alert.setHeaderText(null);
+        alert.setContentText("Запись удалена.Обновите таблицу.");
+        alert.showAndWait();
+    }
+
+
+
+    @FXML
+    void edit(MouseEvent event) throws IOException {
+        currentId=quoteTable.getSelectionModel().getSelectedItem().id;
+        currentUser_Id=quoteTable.getSelectionModel().getSelectedItem().user_id;
+        Parent p = FXMLLoader.load(getClass().getResource("editQuote.fxml"));
+
+        Scene scene = new Scene(p);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.initStyle(StageStyle.UTILITY);
+        stage.show();
+    }
 
     String query=null;
     Connection connection=null;
@@ -119,7 +148,7 @@ public class TableController {
                 query = "SELECT * FROM teacher_quotes JOIN users ON (users.id = teacher_quotes.user_id) WHERE (users.study_group ='" + Controller.user.getStudy_group() + "')";
             }
 
-            if (Controller.user.getAccess_rights().equals("headmen")) {
+            if (Controller.user.getAccess_rights().equals("verifier")) {
                 query = "SELECT * FROM teacher_quotes JOIN users ON (users.id = teacher_quotes.user_id) WHERE (users.study_group ='" + Controller.user.getStudy_group() + "')";
             }
 
@@ -149,6 +178,20 @@ public class TableController {
 
     @FXML
     void initialize() throws SQLException, ClassNotFoundException {
+        exitButton.setOnAction(actionEvent -> {
+            exitButton.getScene().getWindow().hide();
+            Stage stage = new Stage();
+            Parent root = null;
+
+            try {
+                root = FXMLLoader.load(getClass().getResource("view.fxml"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            stage.setScene(new Scene(root));
+            stage.setTitle("Авторизация");
+            stage.show();
+        });
 
         //Если пользователь вошел в режиме гостя.
         if (Controller.user.getAccess_rights().equals("guest")) {
