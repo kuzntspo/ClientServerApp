@@ -85,12 +85,12 @@ public class AddQuoteController {
 
     private void insert() throws SQLException {
         ps=connection.prepareStatement(query);
-        ps.setString(1, quoteField.getText());
-        ps.setString(2, surnameField.getText());
-        ps.setString(3, nameField.getText());
-        ps.setString(4, middle_nameField.getText());
-        ps.setString(5, subjectField.getText());
-        ps.setString(6, String.valueOf(dateField.getValue()));
+        ps.setInt(1, Controller.user.getId());
+        ps.setString(2, quoteField.getText());
+        ps.setString(3, surnameField.getText());
+        ps.setString(4, nameField.getText());
+        ps.setString(5, middle_nameField.getText());
+        ps.setString(6, subjectField.getText());
 
         java.util.Date date = java.util.Date.from(dateField.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
         java.sql.Date sqlDate = new java.sql.Date(date.getTime());
@@ -100,7 +100,7 @@ public class AddQuoteController {
     }
 
     private void getQuery() {
-        query = "INSERT INTO `teacher_quotes`(`quote`, `surname`, `name`, `middle_name`, `subject`, `date`) VALUES (?,?,?,?,?,?)";
+        query = "INSERT INTO `teacher_quotes` (`user_id`, `quote`, `surname`, `name`, `middle_name`, `subject`, `date`) VALUES(?, ?, ?, ?, ?, ?, ?)";
     }
 
     String query=null;

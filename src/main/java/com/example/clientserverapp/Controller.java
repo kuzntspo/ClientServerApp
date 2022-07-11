@@ -38,6 +38,8 @@ public class Controller {
     @FXML
     private Button SignUpButton;
 
+    public static User user = new User();
+
     @FXML
     void initialize() {
         //Переход на окно регистрации при нажатии на кнопку "регистрация"
@@ -83,8 +85,12 @@ public class Controller {
         ResultSet result = handler.getUser(user);
 
         int count=0;
-
-        while (result.next()){
+        if (result.next()) {
+            do {
+                this.user = user;
+                user.setId(result.getInt(1));
+            }
+        while (result.next());
             count++;
         }
 
