@@ -42,7 +42,7 @@ public class Controller {
 
     @FXML
     void initialize() {
-        //Переход на окно регистрации при нажатии на кнопку "регистрация"
+        //Переход на окно регистрации при нажатии на кнопку "регистрация".
         SignUpButton.setOnAction(actionEvent -> {
             SignUpButton.getScene().getWindow().hide();
 
@@ -62,7 +62,7 @@ public class Controller {
             stage.showAndWait();
         });
 
-        //Авторизация пользователя
+        //Авторизация.
         SignInButton.setOnAction(actionEvent -> {
             String login=LoginField.getText();
             String password=PasswordField.getText();
@@ -74,8 +74,29 @@ public class Controller {
             }
         });
 
+        //Нажатие на кнопку "войти как гость".
+        GuestButton.setOnAction(actionEvent -> {
+            GuestButton.getScene().getWindow().hide();
+
+            FXMLLoader loader=new FXMLLoader();
+            loader.setLocation(getClass().getResource("tableView.fxml"));
+
+            try {
+                user.setAccess_rights("guest");
+                loader.load();
+            }
+            catch (IOException e){
+                e.printStackTrace();
+            }
+
+            Parent root = loader.getRoot();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.showAndWait();
+        });
     }
 
+    //Авторизация.
     private void loginUser(String login, String password) throws SQLException {
         DBHandler handler = new DBHandler();
         User user=new User();
@@ -89,9 +110,9 @@ public class Controller {
         while (result.next()){
             count++;
         }
-
         if (count>=1){
-            //Если пользователь найден, то переходим на новое окно, нажав на кнопку "войти"
+
+            //Если пользователь найден, то переходим на новое окно.
             SignInButton.setOnAction(actionEvent -> {
                 SignInButton.getScene().getWindow().hide();
 

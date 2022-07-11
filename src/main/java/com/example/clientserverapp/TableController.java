@@ -22,8 +22,19 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.scene.text.Text;
+
 
 public class TableController {
+
+    @FXML
+    private Text userGroup;
+
+    @FXML
+    private Text userId;
+
+    @FXML
+    private Text userLogin;
 
     @FXML
     private Button AddButton;
@@ -56,6 +67,12 @@ public class TableController {
     private TableView<Quote> quoteTable;
 
     @FXML
+    private Button deleteButton;
+
+    @FXML
+    private Button editButton;
+
+    @FXML
     private Button refreshButton;
 
     @FXML
@@ -68,6 +85,7 @@ public class TableController {
     private TableColumn<Quote, String> user_idColumn;
 
     @FXML
+    //Нажатие на кнопку "Добавить цитату".
     void getAddView(MouseEvent event) throws IOException {
         Parent p = FXMLLoader.load(getClass().getResource("AddQuote.fxml"));
         Scene scene = new Scene(p);
@@ -77,6 +95,7 @@ public class TableController {
         stage.show();
     }
 
+    //Нажатие на кнопку "Обновить".
     @FXML
     void refreshTable() {
         try {
@@ -107,9 +126,20 @@ public class TableController {
 
     @FXML
     void initialize() throws SQLException, ClassNotFoundException {
+
+        //Если пользователь вошел в режиме гостя.
+        if (Controller.user.getAccess_rights().equals("guest")) {
+            UserData("Гость", 0, "null");
+            AddButton.setDisable(true);
+            deleteButton.setDisable(true);
+            editButton.setDisable(true);
+        } else UserData(Controller.user.getLogin(), Controller.user.getId(), Controller.user.getStudy_group());
+
+
         loadDate();
     }
 
+    //Загрузка данных из таблицы в базе данных в приложение.
     private void loadDate() throws SQLException, ClassNotFoundException {
         connection = DBHandler.getConnection();
         refreshTable();
@@ -122,6 +152,12 @@ public class TableController {
         middle_nameColumn.setCellValueFactory(new PropertyValueFactory<>("middle_name"));
         subjectColumn.setCellValueFactory(new PropertyValueFactory<>("subject"));
         dateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
+    }
+
+    public void UserData(String login, int id, String group) {
+        userLogin.setText(login);
+        userId.setText(String.valueOf(id));
+        userGroup.setText(group);
     }
 
 

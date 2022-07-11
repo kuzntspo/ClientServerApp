@@ -9,7 +9,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #755a57;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.clientserverapp.Controller">
    <children>
-      <AnchorPane layoutY="79.0" prefHeight="8.0" prefWidth="700.0" style="-fx-background-color: #FAEBD7;" />
+      <AnchorPane layoutY="85.0" prefHeight="8.0" prefWidth="700.0" style="-fx-background-color: #FAEBD7;" />
       <Label layoutX="251.0" layoutY="40.0" text="Database access" textFill="ANTIQUEWHITE">
          <font>
             <Font name="Georgia Italic" size="27.0" />
@@ -25,8 +25,8 @@
             <Font name="Georgia Italic" size="13.0" />
          </font>
       </Button>
-      <TextField fx:id="LoginField" layoutX="241.0" layoutY="172.0" prefHeight="27.0" prefWidth="217.0" promptText="Логин" style="-fx-border-color: #755a57; -fx-border-radius: 5;" />
-      <PasswordField fx:id="PasswordField" layoutX="241.0" layoutY="229.0" prefHeight="26.0" prefWidth="218.0" promptText="Пароль" style="-fx-border-color: #755a57; -fx-border-radius: 5;" />
+      <TextField fx:id="LoginField" layoutX="241.0" layoutY="172.0" prefHeight="27.0" prefWidth="217.0" promptText="Логин" style="-fx-border-color: #FAEBD7755a57; -fx-border-radius: 5;" />
+      <PasswordField fx:id="PasswordField" layoutX="241.0" layoutY="229.0" prefHeight="26.0" prefWidth="218.0" promptText="Пароль" style="-fx-border-color: #FAEBD7; -fx-border-radius: 5;" />
       <Button fx:id="SignInButton" layoutX="271.0" layoutY="304.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="152.0" style="-fx-background-color: #FAEBD7;" text="Войти" textFill="#755a57">
          <font>
             <Font name="Georgia Italic" size="14.0" />

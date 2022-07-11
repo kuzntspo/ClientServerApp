@@ -33,11 +33,13 @@ public class SignUpController {
 
     @FXML
     void initialize() {
+        //Нажатие на кнопку "Зарегистрироваться".
         ButtonSignUp.setOnAction(actionEvent -> {
             SignUpUser();
         });
     }
 
+    //Регистрация пользователя.
     private void SignUpUser() {
         DBHandler handler = new DBHandler();
         String login = SignUpLogin.getText();
@@ -49,7 +51,7 @@ public class SignUpController {
 
         Alert alert =new Alert(Alert.AlertType.INFORMATION);
         alert.setHeaderText(null);
-        alert.setContentText("Вы зарегистрированы.");
+        alert.setContentText("Вы зарегистрировались.");
         alert.showAndWait();
     }
 

@@ -48,6 +48,7 @@ public class AddQuoteController {
     private TextField surnameField;
 
     @FXML
+    //Очищение полей.
     void clean(MouseEvent event) {
         quoteField.setText(null);
         surnameField.setText(null);
@@ -57,6 +58,7 @@ public class AddQuoteController {
     }
 
     @FXML
+    //Сохранение данных, введенные в поля.
     void save(MouseEvent event) throws SQLException, ClassNotFoundException {
         connection= DBHandler.getConnection();
         String quote = quoteField.getText();
@@ -66,6 +68,7 @@ public class AddQuoteController {
         String subject = subjectField.getText();
         String date = String.valueOf(dateField.getValue());
 
+        //Провверка на заполнение всех полей.
         if (quote.isEmpty()||name.isEmpty()||surname.isEmpty()||middle_name.isEmpty()||subject.isEmpty()||date.isEmpty()){
             Alert alert =new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
@@ -79,10 +82,10 @@ public class AddQuoteController {
             alert.setHeaderText(null);
             alert.setContentText("Ваша цитата добалена. Обновите таблицу");
             alert.showAndWait();
-            
         }
     }
 
+    //Добавление записей.
     private void insert() throws SQLException {
         ps=connection.prepareStatement(query);
         ps.setInt(1, Controller.user.getId());
@@ -92,13 +95,13 @@ public class AddQuoteController {
         ps.setString(5, middle_nameField.getText());
         ps.setString(6, subjectField.getText());
 
-        java.util.Date date = java.util.Date.from(dateField.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
+        java.util.Date date = java.util.Date.from(dateField.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()); //Перевод даты в формат даты sql.
         java.sql.Date sqlDate = new java.sql.Date(date.getTime());
-
         ps.setDate(7, sqlDate);
         ps.execute();
     }
 
+    //SQL запрос.
     private void getQuery() {
         query = "INSERT INTO `teacher_quotes` (`user_id`, `quote`, `surname`, `name`, `middle_name`, `subject`, `date`) VALUES(?, ?, ?, ?, ?, ?, ?)";
     }
