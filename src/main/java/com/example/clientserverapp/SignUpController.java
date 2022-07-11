@@ -3,6 +3,7 @@ package com.example.clientserverapp;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -22,6 +23,9 @@ public class SignUpController {
     private TextField SignUpLogin;
 
     @FXML
+    private TextField Study_group;
+
+    @FXML
     private PasswordField SignUpPassword;
 
     //@FXML
@@ -38,9 +42,15 @@ public class SignUpController {
         DBHandler handler = new DBHandler();
         String login = SignUpLogin.getText();
         String password = SignUpPassword.getText();
+        String study_group =Study_group.getText();
 
-        User user = new User(login, password);
+        User user = new User(login, password, study_group);
         handler.signUpUser(user);
+
+        Alert alert =new Alert(Alert.AlertType.INFORMATION);
+        alert.setHeaderText(null);
+        alert.setContentText("Вы зарегистрированы.");
+        alert.showAndWait();
     }
 
 }

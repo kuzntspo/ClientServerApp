@@ -15,18 +15,19 @@
                 <Font name="Georgia Italic" size="27.0" />
             </font>
         </Label>
-          <Button fx:id="ButtonSignUp" layoutX="224.0" layoutY="241.0" mnemonicParsing="false" prefHeight="15.0" prefWidth="180.0" style="-fx-background-color: #755a57;" text="Зарегистрироваться " textFill="#cfc2b2">
+          <Button fx:id="ButtonSignUp" layoutX="225.0" layoutY="308.0" mnemonicParsing="false" prefHeight="15.0" prefWidth="180.0" style="-fx-background-color: #755a57;" text="Зарегистрироваться " textFill="#cfc2b2">
               <font>
                   <Font name="Georgia Italic" size="14.0" />
               </font>
           </Button>
-      <PasswordField fx:id="SignUpPassword" layoutX="185.0" layoutY="151.0" prefHeight="27.0" prefWidth="258.0" promptText="Придумайте пароль" style="-fx-border-color: #755a57; -fx-border-radius: 5;" />
-      <TextField fx:id="SignUpLogin" layoutX="185.0" layoutY="113.0" prefHeight="27.0" prefWidth="258.0" promptText="Придумайте логин" style="-fx-border-color: #755a57; -fx-border-radius: 5;" />
+      <PasswordField fx:id="SignUpPassword" layoutX="186.0" layoutY="200.0" prefHeight="27.0" prefWidth="258.0" promptText="Придумайте пароль" style="-fx-border-color: #755a57; -fx-border-radius: 5;" />
+      <TextField fx:id="SignUpLogin" layoutX="186.0" layoutY="160.0" prefHeight="27.0" prefWidth="258.0" promptText="Придумайте логин" style="-fx-border-color: #755a57; -fx-border-radius: 5;" />
           <Label layoutX="229.0" layoutY="24.0" text="Регистрация" textFill="#755a57">
               <font>
                   <Font name="Georgia Italic" size="27.0" />
               </font>
           </Label>
-      <PasswordField fx:id="SignUpPassword1" layoutX="185.0" layoutY="186.0" prefHeight="27.0" prefWidth="258.0" promptText="Повторите пароль" style="-fx-border-color: #755a57; -fx-border-radius: 5;" />
+      <PasswordField fx:id="SignUpPassword1" layoutX="186.0" layoutY="242.0" prefHeight="27.0" prefWidth="258.0" promptText="Повторите пароль" style="-fx-border-color: #755a57; -fx-border-radius: 5;" />
+      <TextField fx:id="Study_group" layoutX="186.0" layoutY="120.0" prefHeight="27.0" prefWidth="258.0" promptText="Укажите номер вашей учебной группы" style="-fx-border-color: #755a57; -fx-border-radius: 5;" />
     </children>
 </AnchorPane>

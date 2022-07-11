@@ -85,12 +85,8 @@ public class Controller {
         ResultSet result = handler.getUser(user);
 
         int count=0;
-        if (result.next()) {
-            do {
-                this.user = user;
-                user.setId(result.getInt(1));
-            }
-        while (result.next());
+
+        while (result.next()){
             count++;
         }
 

@@ -75,7 +75,7 @@ public class AddQuoteController {
         else {
             getQuery();
             insert();
-            Alert alert =new Alert(Alert.AlertType.ERROR);
+            Alert alert =new Alert(Alert.AlertType.INFORMATION);
             alert.setHeaderText(null);
             alert.setContentText("Ваша цитата добалена. Обновите таблицу");
             alert.showAndWait();

@@ -5,13 +5,23 @@ public class User {
     private String login;
     private String password;
     private String access_rights;
+    private String study_group;
 
-    public User(String login, String password){
+    public User(String login, String password, String study_group){
         this.login=login;
+        this.study_group=study_group;
         this.password=password;
     }
 
     public User() {}
+
+    public String getStudy_group() {
+        return study_group;
+    }
+
+    public void setStudy_group(String study_group) {
+        this.study_group = study_group;
+    }
 
     public int getId() {
         return id;
