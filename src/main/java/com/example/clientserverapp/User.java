@@ -54,4 +54,5 @@ public class User {
     public void setAccess_rights(String access_rights) {
         this.access_rights = access_rights;
     }
+
 }

@@ -102,16 +102,19 @@ public class Controller {
         User user=new User();
         user.setLogin(login);
         user.setPassword(password);
-
         ResultSet result = handler.getUser(user);
 
         int count=0;
 
         while (result.next()){
+            this.user = user;
+            user.setId(result.getInt(1));
+            user.setStudy_group(result.getString(5));
+            user.setAccess_rights(result.getString(4));
+
             count++;
         }
-        if (count>=1){
-
+        if ((count>=1)&&((user.getAccess_rights().equals("user"))||(user.getAccess_rights().equals("superuser"))||(user.getAccess_rights().equals("headmen")))){
             //Если пользователь найден, то переходим на новое окно.
             SignInButton.setOnAction(actionEvent -> {
                 SignInButton.getScene().getWindow().hide();

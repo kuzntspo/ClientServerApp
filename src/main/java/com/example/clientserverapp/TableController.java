@@ -11,6 +11,7 @@ import java.util.ResourceBundle;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -29,6 +30,9 @@ public class TableController {
 
     @FXML
     private Text userGroup;
+
+    @FXML
+    private Button deleteButton;
 
     @FXML
     private Text userId;
@@ -67,9 +71,6 @@ public class TableController {
     private TableView<Quote> quoteTable;
 
     @FXML
-    private Button deleteButton;
-
-    @FXML
     private Button editButton;
 
     @FXML
@@ -84,6 +85,20 @@ public class TableController {
     @FXML
     private TableColumn<Quote, String> user_idColumn;
 
+    @FXML
+    void delete(MouseEvent event){}
+
+    @FXML
+    private Button exitButton;
+
+    String query=null;
+    Connection connection=null;
+    PreparedStatement ps=null;
+    ResultSet rs=null;
+    Quote quote=null;
+    DBHandler handler = new DBHandler();
+
+    ObservableList<Quote> QuoteList= FXCollections.observableArrayList();
     @FXML
     //Нажатие на кнопку "Добавить цитату".
     void getAddView(MouseEvent event) throws IOException {
@@ -100,7 +115,22 @@ public class TableController {
     void refreshTable() {
         try {
             QuoteList.clear();
-            query = "SELECT * FROM teacher_quotes ";
+            if (Controller.user.getAccess_rights().equals("user")) {
+                query = "SELECT * FROM teacher_quotes JOIN users ON (users.id = teacher_quotes.user_id) WHERE (users.study_group ='" + Controller.user.getStudy_group() + "')";
+            }
+
+            if (Controller.user.getAccess_rights().equals("headmen")) {
+                query = "SELECT * FROM teacher_quotes JOIN users ON (users.id = teacher_quotes.user_id) WHERE (users.study_group ='" + Controller.user.getStudy_group() + "')";
+            }
+
+            if (Controller.user.getAccess_rights().equals("superuser")) {
+                    query = "SELECT * FROM teacher_quotes ";
+            }
+
+            if (Controller.user.getAccess_rights().equals("guest")) {
+                query = "SELECT * FROM teacher_quotes ";
+            }
+
             ps = connection.prepareStatement(query);
             rs = ps.executeQuery();
 
@@ -116,25 +146,35 @@ public class TableController {
         }
     }
 
-    String query=null;
-    Connection connection=null;
-    PreparedStatement ps=null;
-    ResultSet rs=null;
-    Quote quote=null;
-
-    ObservableList<Quote> QuoteList= FXCollections.observableArrayList();
 
     @FXML
     void initialize() throws SQLException, ClassNotFoundException {
 
         //Если пользователь вошел в режиме гостя.
         if (Controller.user.getAccess_rights().equals("guest")) {
-            UserData("Гость", 0, "null");
+            UserData("Гость", 0, "нет");
             AddButton.setDisable(true);
             deleteButton.setDisable(true);
             editButton.setDisable(true);
         } else UserData(Controller.user.getLogin(), Controller.user.getId(), Controller.user.getStudy_group());
 
+        if (Controller.user.getAccess_rights().equals("user")){
+            deleteButton.setDisable(true);
+            editButton.setDisable(true);
+            quoteTable.setOnMousePressed(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent mouseEvent) {
+                    if ((Controller.user.getId())==quoteTable.getSelectionModel().getSelectedItem().user_id){
+                        deleteButton.setDisable(false);
+                        editButton.setDisable(false);
+                    }
+                    else {
+                        deleteButton.setDisable(true);
+                        editButton.setDisable(true);
+                    }
+                }
+            });
+        }
 
         loadDate();
     }

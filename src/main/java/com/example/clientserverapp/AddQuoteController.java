@@ -46,7 +46,7 @@ public class AddQuoteController {
 
     @FXML
     private TextField surnameField;
-
+    
     @FXML
     //Очищение полей.
     void clean(MouseEvent event) {
