@@ -110,8 +110,8 @@ public class Controller {
         while (result.next()){
             this.user = user;
             user.setId(result.getInt(1));
-            user.setStudy_group(result.getString(5));
             user.setAccess_rights(result.getString(4));
+            user.setStudy_group(result.getString(5));
 
             count++;
         }

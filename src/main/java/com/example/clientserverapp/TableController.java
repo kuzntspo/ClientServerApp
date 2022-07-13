@@ -36,6 +36,9 @@ public class TableController {
     private Button deleteButton;
 
     @FXML
+    private Button editUser;
+
+    @FXML
     private Text userId;
 
     @FXML
@@ -178,6 +181,20 @@ public class TableController {
 
     @FXML
     void initialize() throws SQLException, ClassNotFoundException {
+        editUser.setOnAction(actionEvent -> {
+            editUser.getScene().getWindow().hide();
+            Stage stage = new Stage();
+            Parent root = null;
+
+            try {
+                root = FXMLLoader.load(getClass().getResource("editUser.fxml"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            stage.setScene(new Scene(root));
+            stage.show();
+        });
+
         exitButton.setOnAction(actionEvent -> {
             exitButton.getScene().getWindow().hide();
             Stage stage = new Stage();
@@ -189,8 +206,8 @@ public class TableController {
                 e.printStackTrace();
             }
             stage.setScene(new Scene(root));
-            stage.setTitle("Авторизация");
             stage.show();
+
         });
 
         //Если пользователь вошел в режиме гостя.
